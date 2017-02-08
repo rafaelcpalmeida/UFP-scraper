@@ -34,3 +34,5 @@ if len(sys.argv) > 1:
         
         if re.search(r"Correio", str(element)):
             print element.contents[0]
+else:
+    print "Erro! Argumento em falta. Uso: python spider.py \"aliasDoProfessor\""
