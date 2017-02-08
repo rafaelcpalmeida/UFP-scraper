@@ -8,8 +8,8 @@ A preencher
 A preencher
 
 #### Dependências
-- Splinter
-- BeautifulSoup
+- [Splinter]
+- [BeautifulSoup]
 
 # Licença
 
