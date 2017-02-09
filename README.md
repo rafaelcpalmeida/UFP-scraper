@@ -1,11 +1,14 @@
 # UFP Scraper
-A preencher
+Repositório para albergar todos os bots/scrapers/spiders necessários para alimentar a [API]
 
 # Propósito 
-A preencher
+Os scripts disponíveis no repositório têm como propósito a alimentação e atualização periódica da informação de contactos bem como disponibilidade dos docentes da Universidade Fernando Pessoa.
 
 # Utilização
-A preencher
+- scraper.py
+    - python scrapper.py "nome do Professor"
+- spider.py
+    - python spider.py "aliasDoProfessor"
 
 #### Dependências
 - [Splinter]
@@ -23,3 +26,4 @@ MIT
 
    [Splinter]: <https://splinter.readthedocs.io/en/latest/>
    [BeautifulSoup]: <https://www.crummy.com/software/BeautifulSoup/>
+   [API]: https://github.com/rafaelcpalmeida/UFP-API
