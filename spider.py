@@ -22,7 +22,7 @@ if len(sys.argv) > 1:
     nome = soup.find("b")
 
     details["name"] = nome.contents[0].encode("utf-8")
-    
+
     for lists in soup.find_all("ul"):
         details[lists.previous_element] = []
         for content in lists.contents:
@@ -30,7 +30,7 @@ if len(sys.argv) > 1:
     for element in soup.find_all('p'):
         if re.search(r"Última", str(element)):
             details["atualizacao"] = element.contents[0]
-        
+
         if re.search(r"Correio", str(element)):
             details["contactos"] = element.contents[0]
 
