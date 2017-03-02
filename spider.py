@@ -15,7 +15,7 @@ if len(sys.argv) > 1:
     details = {}
     url = 'http://rh.ufp.pt/rh/Detalhe/'+sys.argv[1]
     r  = requests.get(url)
-    
+
     data = r.text
     soup = BeautifulSoup(data, "lxml")
 
