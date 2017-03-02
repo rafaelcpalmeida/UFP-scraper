@@ -5,12 +5,14 @@ import sys
 from bs4 import BeautifulSoup
 import requests
 import re
+import json
 
 #Definir o encoding por omissão como o UTF-8 devido a nomes com acentos
 reload(sys)
 sys.setdefaultencoding("utf-8")
 
 if len(sys.argv) > 1:
+    details = {}
     url = 'http://rh.ufp.pt/rh/Detalhe/'+sys.argv[1]
     r  = requests.get(url)
     
@@ -19,20 +21,19 @@ if len(sys.argv) > 1:
 
     nome = soup.find("b")
 
-    print nome.contents[0].encode("utf-8")
-    print ""
+    details["name"] = nome.contents[0].encode("utf-8")
     
     for lists in soup.find_all("ul"):
-        print lists.previous_element
+        details[lists.previous_element] = []
         for content in lists.contents:
-            print content.contents[0].encode("utf-8")
-        print ""
+            details[lists.previous_element].append(content.contents[0].encode("utf-8"))
     for element in soup.find_all('p'):
         if re.search(r"Última", str(element)):
-            print element.contents[0]
-            print ""
+            details["atualizacao"] = element.contents[0]
         
         if re.search(r"Correio", str(element)):
-            print element.contents[0]
+            details["contactos"] = element.contents[0]
+
+    print json.dumps(details)
 else:
     print "Erro! Argumento em falta. Uso: python spider.py \"aliasDoProfessor\""
