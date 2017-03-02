@@ -15,7 +15,6 @@ if len(sys.argv) > 1:
     nome = sys.argv[1]
 
     with Browser() as browser:
-        browser.windows
         # Visit URL
         url = "http://rh.ufp.pt"
         browser.visit(url)
