@@ -13,7 +13,8 @@ sys.setdefaultencoding("utf-8")
 
 if len(sys.argv) > 1:
     details = {}
-    url = 'http://rh.ufp.pt/rh/Detalhe/'+sys.argv[1]
+    url = "http://rh.ufp.pt/rh/Detalhe/" + sys.argv[1]
+    apiURL = "http://ufp-api.dev/api/v1/"
     r  = requests.get(url)
 
     data = r.text
@@ -34,6 +35,8 @@ if len(sys.argv) > 1:
         if re.search(r"Correio", str(element)):
             details["contactos"] = element.contents[0]
 
-    print json.dumps(details)
+    r = requests.post(apiURL + 'teacher/' + sys.argv[1].upper(), data={'api_token': 1, 'details': json.dumps(details)})
+
+    print(r.status_code, r.reason)
 else:
     print "Erro! Argumento em falta. Uso: python spider.py \"aliasDoProfessor\""
