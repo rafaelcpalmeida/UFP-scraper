@@ -6,9 +6,9 @@ Os scripts disponíveis no repositório têm como propósito a alimentação e a
 
 # Utilização
 - scraper.py
-    - python scrapper.py "nome do Professor"
+    - python teachers_scrapper.py "nome do Professor"
 - spider.py
-    - python spider.py "aliasDoProfessor"
+    - python teachers_updater.py "aliasDoProfessor"
 
 #### Dependências
 - [Splinter]
